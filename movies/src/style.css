@@ -1,0 +1,257 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+html{
+    font-size: 16px;
+}
+
+a{
+    text-decoration: none;
+    color: grey;
+}
+
+.container{
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 1rem 0;
+}
+
+body{
+    background-color: #0D0620;
+}
+.flex{
+    display: flex;
+    justify-content: space-between;
+}
+
+header{
+ background-color: #1e192c;
+ /* box-shadow: 1px 0px 12px 0.1px white; */
+}
+
+h1{
+    text-align: left;
+    color: white;
+    font-size: 2rem;
+    font-weight: 700;
+}
+form{
+    display: flex;
+}
+
+.search{
+    background-color: #0D0620;
+    border: 2px solid white;
+    font-size: 1.2em;
+}
+
+.searchInput{
+    padding: 0.5rem 1rem;
+}
+
+.searchInput::placeholder{
+    color: #0D0620;
+    font-weight: 700;
+}
+.movie-wrapper{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 4rem 0;
+}
+.movie img{
+width: 100%;
+border-radius: 8px;
+transition: transform 3s;
+
+}
+.movie{
+    flex: 0 0 22%;
+    margin-bottom: 2rem;
+    box-shadow: 1px 0px 10px 0px #524a65;
+    border-radius: 8px;
+   
+    
+
+}
+
+.movie img:hover{
+    transform: scale(1.1); 
+}
+
+h2{
+    color: white;
+    font-weight: 800;
+    font-size: 3.5rem;
+    text-align: left  ;
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    
+  
+}
+.page-btn{
+    color: white;
+    background-color: #1e192c;
+    border: 1px solid white;
+    padding: 0.7rem;
+}
+.active{
+    color: #0D0620;
+    background-color: white;
+    border: 1px solid white;
+    padding: 0.7rem;
+}
+
+.loader{
+    color: white;
+    text-align: center;
+    font-size: 2.2rem;
+}
+.poster{
+    width: 1530px;
+    width: 100%;
+    margin: 0 auto;
+    height: 16rem;
+}
+.img{
+    width: 100%;
+    opacity: 0.2;
+}
+
+.tagline{
+    margin-top: 1rem;
+    color: white;
+    font-size: 1rem;
+
+}
+
+.overview{
+    color: white;
+    font-size: 1.6rem;
+    margin: 1.4rem 0;
+}
+
+.info{
+    margin: 0.4rem;
+    color: white;
+    font-weight: 600;
+}
+.language{
+    color: white;
+}
+
+.filter{
+    color: aqua;
+    text-align: right;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-top: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+@media only screen and (max-width: 1100px) {
+    .container{
+      max-width: 1050px;
+    }
+    html{
+        font-size: 14px;
+    }
+
+    }
+
+@media only screen and (max-width: 900px) {
+  .container{
+    max-width: 850px;
+  }
+  html{
+    font-size: 13px;
+}
+.movie{
+    flex: 0 1 48%;
+}
+
+
+  }
+
+  @media only screen and (max-width: 700px) {
+    .container{
+      max-width: 670px;
+    }
+    html{
+        font-size: 11px;
+    }
+    .movie{
+        flex: 0 1 48%;
+    }
+    
+    }
+
+    @media only screen and (max-width: 500px) {
+        .container{
+          max-width: 450px;
+        }
+        html{
+            font-size: 10px;
+        }
+        .movie{
+            flex: 0 1 100%;
+        }
+       
+        }
+
+  @media only screen and (max-width: 400px) {
+    .container{
+        max-width: 350px;
+      }
+      html{
+        font-size: 9px;
+    }
+    .movie{
+        flex: 0 1 100%;
+    }
+   
+  }
