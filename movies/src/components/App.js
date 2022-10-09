@@ -11,8 +11,7 @@ import {
 } from "react-router-dom";
 import SingleMovie from "./SingleMovie";
 import Home from "./Home";
-import { useState } from "react";
-import { func } from "prop-types";
+
 
 function App() {
  

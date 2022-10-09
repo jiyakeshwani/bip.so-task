@@ -8,8 +8,11 @@ function Movies(props) {
   let [activePage, setActivePage] = useState(1);
   let [movies, setMovies] = useState([]);
   let [date, setDate] = useState("");
+  let [releasedYears, setReleasedYears] = useState([]);
 
+  const [filteredMovies, setFilteredMovies] = useState([]);
   function handleFilter(event) {
+    console.log("hello");
     setDate(event.target.value);
   }
 
@@ -18,8 +21,18 @@ function Movies(props) {
     fetch(baseUrl)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+   
+        const getYears = data.data.results.reduce((acc, cv) => {
+          let year = new Date(cv.release_date).getFullYear();
+
+          if (!acc.includes(year) && year) {
+            acc.push(year);
+          }
+          return acc;
+        }, []);
+       
         setMovies(data.data.results);
+        setReleasedYears(getYears);
       });
   }
 
@@ -30,38 +43,41 @@ function Movies(props) {
 
   useEffect(() => {
     fetchMovies();
-  }, [movies]);
+  }, [activePage]);
+  console.log(date);
+  useEffect(() => {
+    if (date) {
+      handleFilteredMovies();
+    }
+  }, [date]);
+  function handleFilteredMovies() {
+    let filteredMovies = movies.filter((movie) => {
+      let year = new Date(movie.release_date).getFullYear();
 
-  function handleFilteredMovies(date, movies) {
-    let moviesArr = [...movies];
-    console.log(moviesArr);
-    moviesArr.map((movie) => {
-      let year = movie.release_date.split("-")[0];
-
-      if (year == date) {
-        console.log(movie.title);
-        moviesArr = { ...movie };
-      }
-
-      // let allMovies = moviesArr.push(movie);
-      console.log([moviesArr]);
-      return moviesArr;
+      return +date === year;
     });
+    console.log(filteredMovies);
+    setFilteredMovies(filteredMovies);
   }
 
-  handleFilteredMovies("2022", movies);
+
+  let data = date ? filteredMovies : movies;
 
   return (
     <>
       <div className="container">
-        <Filter date={date} handleFilter={handleFilter} />
+        <Filter
+          date={date}
+          handleFilter={handleFilter}
+          releasedYears={releasedYears}
+        />
       </div>
       <div className="container movie-wrapper">
-        {movies === null ? (
+        {!data ? (
           <Loader />
         ) : (
           <>
-            {movies.map((movie) => {
+            {data.map((movie) => {
               return (
                 <div className="movie" id="top">
                   <NavLink to={`/movies/${movie.id}`}>

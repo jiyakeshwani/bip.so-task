@@ -4,13 +4,14 @@ function Filter(props) {
   return (
     <>
       <div className="filter">
-        Filter by
-        <input
-          type="text"
-          placeholder="Year of release"
-          value={props.filter}
-          onChange={props.handleFilter}
-        />
+        Filter by : 
+        <select value={props.date} onChange={props.handleFilter}>
+          <option className="option">Year</option>
+          {props.releasedYears.map((year) => {
+            return <option value={year}>{year}</option>;
+          })}
+     
+        </select>
       </div>
     </>
   );
